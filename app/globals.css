@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #2d6a4f;
+	--color-primary-light: #40916c;
+	--color-primary-dark: #1b4332;
+	--color-accent: #52b788;
+	--color-accent-light: #74c69d;
+	--color-surface: #ffffff;
+	--color-surface-alt: #f8faf9;
+	--color-surface-hover: #f0f5f2;
+	--color-border: #d8e4dd;
+	--color-text: #1a1a2e;
+	--color-text-secondary: #5a5a72;
+	--color-text-muted: #8a8a9a;
+	--color-success: #2d6a4f;
+	--color-error: #d32f2f;
+	--color-warning: #f9a825;
+	--font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: var(--font-sans);
+		color: var(--color-text);
+		background: linear-gradient(135deg, #f0f5f2 0%, #e8f0eb 50%, #f5f8f6 100%);
+		min-height: 100vh;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+/* Stepper progress bar */
+.stepper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
+	margin-bottom: 2rem;
+}
+
+.stepper-step {
+	display: flex;
+	align-items: center;
+	gap: 0;
+}
+
+.stepper-circle {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.85rem;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	flex-shrink: 0;
+}
+
+.stepper-circle.active {
+	background: var(--color-primary);
+	color: white;
+	box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.2);
+}
+
+.stepper-circle.completed {
+	background: var(--color-accent);
+	color: white;
+}
+
+.stepper-circle.inactive {
+	background: var(--color-border);
+	color: var(--color-text-muted);
+}
+
+.stepper-line {
+	width: 60px;
+	height: 3px;
+	transition: background 0.3s ease;
+}
+
+.stepper-line.active {
+	background: var(--color-accent);
+}
+
+.stepper-line.inactive {
+	background: var(--color-border);
+}
+
+.stepper-label {
+	font-size: 0.7rem;
+	margin-top: 0.35rem;
+	font-weight: 500;
+	text-align: center;
+	white-space: nowrap;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes checkmark {
+	from {
+		stroke-dashoffset: 50;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+.animate-fade-in-up {
+	animation: fadeInUp 0.5s ease forwards;
+}
+
+.animate-scale-in {
+	animation: scaleIn 0.4s ease forwards;
+}
+
+/* Pulse button animation */
+@keyframes pulse-glow {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.4);
+	}
+	50% {
+		box-shadow: 0 0 0 8px rgba(45, 106, 79, 0);
+	}
+}
+
+.btn-pulse:hover {
+	animation: pulse-glow 1.5s infinite;
+}
