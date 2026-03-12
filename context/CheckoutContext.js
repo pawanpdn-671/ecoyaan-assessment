@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useMemo } from "react";
 
 const CheckoutContext = createContext(null);
 
@@ -33,24 +33,24 @@ export function CheckoutProvider({ children, initialCartData }) {
 		}
 	}, [initialCartData]);
 
-	return (
-		<CheckoutContext.Provider
-			value={{
-				cartItems,
-				shippingFee,
-				discount,
-				subtotal,
-				grandTotal,
-				shippingAddress,
-				setShippingAddress,
-				updateQuantity,
-				orderPlaced,
-				placeOrder,
-				resetOrder,
-			}}>
-			{children}
-		</CheckoutContext.Provider>
+	const value = useMemo(
+		() => ({
+			cartItems,
+			shippingFee,
+			discount,
+			subtotal,
+			grandTotal,
+			shippingAddress,
+			setShippingAddress,
+			updateQuantity,
+			orderPlaced,
+			placeOrder,
+			resetOrder,
+		}),
+		[cartItems, shippingFee, discount, subtotal, grandTotal, shippingAddress, orderPlaced, updateQuantity, placeOrder, resetOrder],
 	);
+
+	return <CheckoutContext.Provider value={value}>{children}</CheckoutContext.Provider>;
 }
 
 export function useCheckout() {
