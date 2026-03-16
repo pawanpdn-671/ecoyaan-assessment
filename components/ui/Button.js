@@ -9,12 +9,19 @@ export default function Button({
 	disabled = false,
 	loading = false,
 	variant = "primary",
+	size = "md",
 	fullWidth = false,
 	className = "",
 	...rest
 }) {
 	const base =
-		"font-semibold py-3 px-6 rounded-xl transition-all duration-300 cursor-pointer text-sm tracking-wide flex items-center justify-center gap-2";
+		"font-semibold rounded-xl transition-all duration-300 cursor-pointer tracking-wide flex items-center justify-center gap-2";
+
+	const sizes = {
+		sm: "py-2.5 px-4 text-xs",
+		md: "py-3 px-6 text-sm",
+		lg: "py-4 px-8 text-base",
+	};
 
 	const variants = {
 		primary: "bg-primary hover:bg-primary-dark text-white",
@@ -30,11 +37,11 @@ export default function Button({
 			type={type}
 			onClick={onClick}
 			disabled={disabled || loading}
-			className={`${base} ${variants[variant]} ${fullWidth ? "w-full" : ""} ${disabledStyles} ${className}`}
+			className={`${base} ${sizes[size] || sizes.md} ${variants[variant]} ${fullWidth ? "w-full" : ""} ${disabledStyles} ${className}`}
 			{...rest}>
 			{loading ? (
 				<>
-					<Spinner size={16} />
+					<Spinner size={size === "sm" ? 14 : 16} />
 					Processing…
 				</>
 			) : (

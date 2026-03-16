@@ -7,6 +7,7 @@ import { formatCurrency } from "@/utils/formatCurrency";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import AddressCard from "@/components/AddressCard";
+import { LuCheck } from "react-icons/lu";
 
 export default function SuccessPage() {
 	const { cartItems, grandTotal, shippingAddress, orderPlaced, resetOrder } = useCheckout();
@@ -24,20 +25,7 @@ export default function SuccessPage() {
 	return (
 		<div className="animate-scale-in max-w-lg mx-auto">
 			<div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
-				<svg
-					width="40"
-					height="40"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2.5"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					className="text-accent"
-					aria-hidden="true">
-					<path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-					<polyline points="22 4 12 14.01 9 11.01" />
-				</svg>
+				<LuCheck size={40} className="text-accent" strokeWidth={2.5} aria-hidden="true" />
 			</div>
 
 			<div className="text-center">

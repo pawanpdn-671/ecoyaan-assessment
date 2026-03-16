@@ -45,7 +45,7 @@ export default async function RootLayout({ children }) {
 					</div>
 
 					{/* Main Content */}
-					<main className="max-w-5xl mx-auto px-4 pb-12">{children}</main>
+					<main className="max-w-5xl mx-auto px-4 pb-28">{children}</main>
 				</CheckoutProvider>
 			</body>
 		</html>

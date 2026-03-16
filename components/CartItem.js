@@ -16,6 +16,11 @@ export default function CartItem({ item, onUpdateQuantity, style }) {
 					<h3 className="font-semibold text-text text-sm md:text-base line-clamp-2 sm:truncate">
 						{item.product_name}
 					</h3>
+					{item.description && (
+						<p className="text-text-muted text-[10px] sm:text-xs mt-1 line-clamp-2">
+							{item.description}
+						</p>
+					)}
 					<p className="text-primary font-bold text-base sm:text-lg mt-0.5 sm:mt-1">
 						{formatCurrency(item.product_price)}
 					</p>

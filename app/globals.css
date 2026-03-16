@@ -40,103 +40,7 @@
 	}
 }
 
-/* Stepper progress bar */
-.stepper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0;
-	margin-bottom: 2rem;
-}
 
-.stepper-step {
-	display: flex;
-	align-items: center;
-	gap: 0;
-}
-
-.stepper-circle {
-	width: 36px;
-	height: 36px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 0.85rem;
-	font-weight: 600;
-	transition: all 0.3s ease;
-	flex-shrink: 0;
-}
-
-.stepper-circle.active {
-	background: var(--color-primary);
-	color: white;
-	box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.2);
-}
-
-.stepper-circle.completed {
-	background: var(--color-accent);
-	color: white;
-}
-
-.stepper-circle.inactive {
-	background: var(--color-border);
-	color: var(--color-text-muted);
-}
-
-.stepper-line {
-	width: 60px;
-	height: 3px;
-	transition: background 0.3s ease;
-}
-
-.stepper-line.active {
-	background: var(--color-accent);
-}
-
-.stepper-line.inactive {
-	background: var(--color-border);
-}
-
-.stepper-label {
-	font-size: 0.7rem;
-	margin-top: 0.35rem;
-	font-weight: 500;
-	text-align: center;
-	white-space: nowrap;
-}
-
-/* Mobile stepper adjustments */
-@media (max-width: 480px) {
-	.stepper {
-		margin-bottom: 1.25rem;
-	}
-
-	.stepper-circle {
-		width: 28px;
-		height: 28px;
-		font-size: 0.75rem;
-	}
-
-	.stepper-line {
-		width: 20px;
-	}
-
-	.stepper-label {
-		font-size: 0.6rem;
-	}
-}
-
-@media (min-width: 481px) and (max-width: 639px) {
-	.stepper-circle {
-		width: 32px;
-		height: 32px;
-	}
-
-	.stepper-line {
-		width: 36px;
-	}
-}
 
 /* Animations */
 @keyframes fadeInUp {
@@ -170,4 +74,6 @@
 .animate-scale-in {
 	animation: scaleIn 0.4s ease forwards;
 }
+
+
 
